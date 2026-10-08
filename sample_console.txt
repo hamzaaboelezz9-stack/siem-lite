@@ -1,0 +1,18 @@
+[Medium] port_reconnaissance | 198.51.100.20 | user=""
+  Possible reconnaissance: failures on several distinct destination ports.
+  evidence={"destination_ports": [22, 80, 443, 445, 3389], "unique_ports_at_least": 5, "window_seconds": 30}
+[High] brute_force | 198.51.100.10 | user="alice"
+  Possible brute force: repeated failed logins from one source.
+  evidence={"failed_logins_at_least": 5, "window_seconds": 60}
+[Critical] unauthorized_access | 198.51.100.30 | user="former_employee"
+  Successful login violated access policy.
+  evidence={"policy_timezone": "UTC", "reasons": ["Account is marked disabled by the configured policy or event producer."], "work_end": "17:00", "work_start": "09:00", "workdays": [0, 1, 2, 3, 4]}
+[Medium] unauthorized_access | 198.51.100.40 | user="alice"
+  Successful login violated access policy.
+  evidence={"policy_timezone": "UTC", "reasons": ["Login is outside the configured working schedule."], "work_end": "17:00", "work_start": "09:00", "workdays": [0, 1, 2, 3, 4]}
+
+SIEM-Lite | local collection summary
+Records read: 25 | Total logs processed: 25
+Total alerts triggered: 4 | Stored open alerts: 4
+Rejected: 0 | Duplicates ignored: 0 | Late events ignored: 0
+Correlation source-capacity evictions: 0

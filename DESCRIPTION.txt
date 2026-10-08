@@ -1,0 +1,5 @@
+Name: SIEM-Lite
+
+A dependency-free Python SIEM for local JSON logs, with rolling brute-force,
+access-policy and port-reconnaissance detection, persistent structured alerts,
+a CLI dashboard and reproducible tests.

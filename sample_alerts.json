@@ -1,0 +1,95 @@
+[
+  {
+    "alert_id": "a6ea51ec-4473-4b47-a9c8-66f21e56cf7e",
+    "rule_id": "port_reconnaissance",
+    "severity": "Medium",
+    "description": "Possible reconnaissance: failures on several distinct destination ports.",
+    "status": "open",
+    "source_ip": "198.51.100.20",
+    "user": "",
+    "detected_at": "2026-10-08T10:29:07.278819+00:00",
+    "first_event_at": "2026-10-05T10:00:10+00:00",
+    "last_event_at": "2026-10-05T10:00:30+00:00",
+    "evidence": {
+      "unique_ports_at_least": 5,
+      "destination_ports": [
+        22,
+        80,
+        443,
+        445,
+        3389
+      ],
+      "window_seconds": 30
+    }
+  },
+  {
+    "alert_id": "30f6edc8-ab9d-4a26-91f1-64cb2c047f3a",
+    "rule_id": "brute_force",
+    "severity": "High",
+    "description": "Possible brute force: repeated failed logins from one source.",
+    "status": "open",
+    "source_ip": "198.51.100.10",
+    "user": "alice",
+    "detected_at": "2026-10-08T10:29:07.279298+00:00",
+    "first_event_at": "2026-10-05T10:00:05+00:00",
+    "last_event_at": "2026-10-05T10:00:45+00:00",
+    "evidence": {
+      "failed_logins_at_least": 5,
+      "window_seconds": 60
+    }
+  },
+  {
+    "alert_id": "906f485d-74db-44cd-a150-c16637dc3afd",
+    "rule_id": "unauthorized_access",
+    "severity": "Critical",
+    "description": "Successful login violated access policy.",
+    "status": "open",
+    "source_ip": "198.51.100.30",
+    "user": "former_employee",
+    "detected_at": "2026-10-08T10:29:07.279950+00:00",
+    "first_event_at": "2026-10-05T10:00:50+00:00",
+    "last_event_at": "2026-10-05T10:00:50+00:00",
+    "evidence": {
+      "reasons": [
+        "Account is marked disabled by the configured policy or event producer."
+      ],
+      "policy_timezone": "UTC",
+      "work_start": "09:00",
+      "work_end": "17:00",
+      "workdays": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "alert_id": "1977b35d-99d6-48e1-9a80-1223cc760663",
+    "rule_id": "unauthorized_access",
+    "severity": "Medium",
+    "description": "Successful login violated access policy.",
+    "status": "open",
+    "source_ip": "198.51.100.40",
+    "user": "alice",
+    "detected_at": "2026-10-08T10:29:07.282046+00:00",
+    "first_event_at": "2026-10-05T20:00:00+00:00",
+    "last_event_at": "2026-10-05T20:00:00+00:00",
+    "evidence": {
+      "reasons": [
+        "Login is outside the configured working schedule."
+      ],
+      "policy_timezone": "UTC",
+      "work_start": "09:00",
+      "work_end": "17:00",
+      "workdays": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  }
+]
